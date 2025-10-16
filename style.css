@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+.titulo {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+
+}
+
+.titulo h1 {
+    align-items: center;
+    font-family: "Russo One", sans-serif;
+    letter-spacing: 2px;
+    font-size: 38px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px white, 0 0 15px red, 0 0 60px #ff0000;
+    animation: mover 25s ease-in-out infinite;
+}
+
+#logo {
+    height: 130px;
+    width: auto;
+    display: inline-block;
+    background: transparent;
+    animation: brilho 3s ease-in-out infinite,
+               crescer 3s ease-in-out infinite;
+}
+
+header {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 45px;
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    border-bottom: solid 1px rgb(77, 0, 0);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+nav {
+    background: transparent;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav li{
+    font-family: "Russo One", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+nav a {
+    color: white;
+    display: inline-block;
+    border: solid rgb(19, 19, 19) 2px;
+    border-radius: 13px;
+    padding: 10px 15px;
+    background: transparent;
+    overflow: visible;
+    box-shadow: 0 0 7px rgb(60, 60, 60), 0 0 2px rgb(60, 60, 60);
+    transition: .3s;
+}
+
+nav a:hover {
+    background-color: red;
+    color: white;
+    border: solid 2px rgb(215, 0, 0);
+    box-shadow: 0 0 3px rgb(240, 0, 0), 0 0 3px rgb(240, 0, 0);
+    animation: pulsar 1s ease-in-out infinite;
+}
+
+@keyframes crescer {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.10);
+    }
+}
+
+@keyframes mover {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+}
+
+@keyframes brilho {
+    0% {
+        filter: drop-shadow(0 0 1px #ff4a4a) brightness(0.4);
+    }
+    50% {
+        filter: drop-shadow(0 0 1px red) brightness(1.4);
+    }
+    100% {
+        filter: drop-shadow(0 0 1px #ff4a4a) brightness(0.4);
+    }
+}
+
+@keyframes pulsar {
+    0%,100% {
+        filter: drop-shadow(0 0 10px red);
+    }
+    50% {
+        filter: drop-shadow(0 0 25px red);
+    }
+}
+
+/******************FIM DO HEADER*****************/
+
+main {
+    width: 100%;
+    padding-top: 110px;
+    height: 5000px;
+    
+}
+
+section .principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    gap: 20px;
+}
+
+section h2 {
+    color: white;
+    font-family: "Russo One", sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+section p {
+    color: white;
+    font-family: "Russo One", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+section .botao {
+    text-align: center;
+    width: 100px;
+    border: solid rgb(215, 215, 215) 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgb(136, 136, 136);
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+    font-family: "Russo One", sans-serif;
+    text-transform: uppercase;
+    transition: .2s;
+    display: inline-block;
+}
+
+section .botao:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 4px rgb(136, 136, 136), 0 0 12px white;
+    animation: pulsar 1.2s ease-in-out infinite;
+}
+
+/******************FIM DO MAIN*****************/
+body {
+    background-color: black;
+}
