@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
+:root {
+  /* ====== CORES ====== */
+  --preto: #000000;
+  --preto-avermelhado: #250000;
+  --vermelho: #ff0000;
+  --vermelho-escuro: #550000;
+  --branco: #ffffff;
+  --cinza: #888888;
+
+  /* ====== BRILHOS E SOMBRAS ====== */
+  --glow-fraco: 0 0 5px var(--vermelho);
+  --glow-forte: 0 0 20px var(--vermelho);
+
+  /* ====== TEMPOS DE ANIMAÇÃO ====== */
+  --t-rapido: 0.3s;
+  --t-medio: 0.8s;
+  --t-lento: 2s;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,10 +38,13 @@
 .titulo h1 {
     align-items: center;
     font-family: "Russo One", sans-serif;
+    color: var(--branco);
     letter-spacing: 2px;
     font-size: 38px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px white, 0 0 15px red, 0 0 60px #ff0000;
+    text-shadow: 2px 2px 5px var(--preto),
+                 0 0 8px var(--vermelho),
+                 0 0 10px var(--vermelho);
     animation: mover 25s ease-in-out infinite;
 }
 
@@ -42,10 +64,10 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 45px;
-    background: rgba(0, 0, 0, 0.85);
-    position: fixed;
-    border-bottom: solid 1px rgb(77, 0, 0);
+    background: var(--preto);
+    border-bottom: solid 1px var(--vermelho-escuro);
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    position: fixed;
 }
 
 nav {
@@ -69,23 +91,24 @@ nav li{
 }
 
 nav a {
-    color: white;
     display: inline-block;
-    border: solid rgb(19, 19, 19) 2px;
     border-radius: 13px;
     padding: 10px 15px;
     background: transparent;
     overflow: visible;
-    box-shadow: 0 0 7px rgb(60, 60, 60), 0 0 2px rgb(60, 60, 60);
-    transition: .3s;
+    transition: .25s;
+    color: var(--branco);
+    border: solid var(--cinza) 2px;
+    box-shadow: 0 0 7px var(--cinza);
 }
 
 nav a:hover {
-    background-color: red;
-    color: white;
-    border: solid 2px rgb(215, 0, 0);
-    box-shadow: 0 0 3px rgb(240, 0, 0), 0 0 3px rgb(240, 0, 0);
-    animation: pulsar 1s ease-in-out infinite;
+    background-color: var(--branco);
+    border: solid 2px rgb(219, 219, 219);
+    box-shadow: var(--glow-fraco);
+    color: var(--preto);
+    transform: scale(1.2);
+    animation: pulsa 1.2s ease-in-out infinite;
 }
 
 @keyframes crescer {
@@ -131,55 +154,145 @@ nav a:hover {
 
 main {
     width: 100%;
-    padding-top: 110px;
-    height: 5000px;
-    
+    padding-top: 110px;   
 }
 
-section .principal {
+.principal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
-    gap: 20px;
+    padding-top: 80px;
+    gap: 25px;
+    text-shadow: 2px 2px 5px var(--preto),
+                 0 0 8px var(--vermelho),
+                 0 0 10px var(--vermelho);
 }
 
-section h2 {
+.principal h2 {
     color: white;
+    letter-spacing: 1px;
     font-family: "Russo One", sans-serif;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 40px;
+    opacity: 0;
+    animation: surgir-esquerda 1s ease-out .3s forwards;
 }
 
-section p {
+.principal p {
     color: white;
+    letter-spacing: 1px;
     font-family: "Russo One", sans-serif;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px;
+    opacity: 0;
+    animation: surgir-direita 1s ease-out .8s forwards;
 }
 
 section .botao {
     text-align: center;
     width: 100px;
-    border: solid rgb(215, 215, 215) 2px;
     border-radius: 10px;
-    box-shadow: 0 0 4px rgb(136, 136, 136);
-    padding: 5px 10px;
-    background-color: white;
-    color: black;
+    border: solid 2px rgb(154, 154, 154);
+    background-color: var(--branco);
+    color: var(--branco);
+    text-shadow: none;
+    padding: 7px 12px;
+    font-size: 20px;
     font-family: "Russo One", sans-serif;
     text-transform: uppercase;
-    transition: .2s;
+    transition: .25s;
     display: inline-block;
+    animation:pisca .8s ease-in-out infinite;
+    opacity: 1;
 }
 
-section .botao:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 4px rgb(136, 136, 136), 0 0 12px white;
-    animation: pulsar 1.2s ease-in-out infinite;
+section .botao.surge {
+    border: solid 2px rgb(154, 154, 154);
+    background-color: var(--branco);
+    color: rgb(135, 0, 25);
+    opacity: 0;
+    animation: surgir-baixo 1s ease-out 1.3s forwards,
+               pisca .6s ease-in-out infinite;
+}
+
+section .botao.surge:hover {
+    border: 2px solid rgb(209, 0, 0);
+    color: var(--branco);
+    background-color: rgb(135, 0, 25);
+    letter-spacing: -1px;  
+    transform: scale(1.15);
+    width: 115px;
+    font-size: 24px;  
+    opacity: 1;
+    animation-play-state: paused;
+}
+
+@keyframes pulsa {
+    0%,100% {
+        box-shadow: 0 0 3px var(--vermelho),
+                    0 0 20px var(--vermelho),
+                    0 0 15px var(--preto);
+    }
+    50% {
+        box-shadow: 0 0 5px var(--vermelho),
+                    0 0 30px var(--vermelho),
+                    0 0 20px var(--preto);
+    }
+}
+
+
+@keyframes pisca {
+    0%{
+        filter: drop-shadow(0 0 2px transparent)
+                drop-shadow(0 0 2px transparent)
+                drop-shadow(0 0 2px transparent);
+    }
+    50% {
+        filter: drop-shadow(0 0 2px rgb(108, 108, 108))
+                drop-shadow(0 0 2px rgb(108, 108, 108))
+                drop-shadow(0 0 2px rgb(108, 108, 108));
+    }
+    100% {
+        filter: drop-shadow(0 0 2px transparent)
+                drop-shadow(0 0 2px transparent)
+                drop-shadow(0 0 2px transparent);
+    }
+}
+
+@keyframes surgir-esquerda {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes surgir-baixo {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1.1);
+    }
+}
+
+@keyframes surgir-direita {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /******************FIM DO MAIN*****************/
 body {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.968);
 }
