@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@300;400;500&family=Montserrat:wght@300;400;600&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+}
 
 :root {
   /* ====== CORES ====== */
@@ -17,6 +22,40 @@
   --t-rapido: 0.3s;
   --t-medio: 0.8s;
   --t-lento: 2s;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.968);
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+h1, h2, h3, h4, nav li, .botao {
+    font-family:"Russo One", sans-serif;
+    text-transform: uppercase;
+}
+
+h3 {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 3px var(--preto),
+                 0 0 6px var(--vermelho),
+                 0 0 8px var(--vermelho);
+    font-size: 16px;
+}
+
+h2 {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px var(--preto),
+                 0 0 8px var(--vermelho),
+                 0 0 10px var(--vermelho);
+}
+
+p {
+    text-shadow: 2px 2px 2.5px var(--preto),
+                 0 0 4px var(--vermelho),
+                 0 0 5px var(--vermelho);
 }
 
 * {
@@ -67,7 +106,10 @@ header {
     background: var(--preto);
     border-bottom: solid 1px var(--vermelho-escuro);
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    animation: header-esquerda 1s ease-out .3s forwards;
     position: fixed;
+    z-index: 1000;
+    opacity: 0;
 }
 
 nav {
@@ -154,7 +196,7 @@ nav a:hover {
 
 main {
     width: 100%;
-    padding-top: 110px;   
+    padding-top: 110px;
 }
 
 .principal {
@@ -175,7 +217,7 @@ main {
     text-transform: uppercase;
     font-size: 40px;
     opacity: 0;
-    animation: surgir-esquerda 1s ease-out .3s forwards;
+    animation: surgir-cima 1s ease-out .8s forwards;
 }
 
 .principal p {
@@ -185,7 +227,7 @@ main {
     text-transform: uppercase;
     font-size: 14px;
     opacity: 0;
-    animation: surgir-direita 1s ease-out .8s forwards;
+    animation: surgir-esquerda 1s ease-out 1.1s forwards;
 }
 
 section .botao {
@@ -204,6 +246,7 @@ section .botao {
     display: inline-block;
     animation:pisca .8s ease-in-out infinite;
     opacity: 1;
+    margin-bottom: 50px;
 }
 
 section .botao.surge {
@@ -211,20 +254,19 @@ section .botao.surge {
     background-color: var(--branco);
     color: rgb(135, 0, 25);
     opacity: 0;
-    animation: surgir-baixo 1s ease-out 1.3s forwards,
-               pisca .6s ease-in-out infinite;
+    animation: surgir-direita 1s ease-out 1.4s forwards,
+               pisca .7s ease-in-out infinite;
 }
 
 section .botao.surge:hover {
     border: 2px solid rgb(209, 0, 0);
     color: var(--branco);
     background-color: rgb(135, 0, 25);
-    letter-spacing: -1px;  
-    transform: scale(1.15);
-    width: 115px;
-    font-size: 24px;  
+    animation: crescer .85s ease-in-out infinite,
+               surgir-direita none,
+               pisca none,
+               pulsa .85s ease-in-out infinite;
     opacity: 1;
-    animation-play-state: paused;
 }
 
 @keyframes pulsa {
@@ -270,6 +312,17 @@ section .botao.surge:hover {
     }
 }
 
+@keyframes header-esquerda {
+    0% {
+        opacity: 0;
+        transform: translateX(-30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes surgir-baixo {
     0% {
         opacity: 0;
@@ -292,7 +345,140 @@ section .botao.surge:hover {
     }
 }
 
-/******************FIM DO MAIN*****************/
-body {
-    background-color: rgba(0, 0, 0, 0.968);
+#guia {
+    margin: 60px;
+    margin-top: 120px;
 }
+
+.titulo-guia {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 20px;
+    width: 30%;
+    animation: surgir-esquerda 1s ease-out 1.7s forwards;
+    opacity: 0;
+}
+
+.titulo-guia h2 {
+    font-size: 32px;
+}
+
+.titulo-guia p {
+    font-family: "Reboto", sans-serif;
+    font-size: 20px;
+}
+
+.guide {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.guias {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    font-size: 14px;
+ 
+}
+
+.guia1 {
+            animation: surgir-baixo 1s ease-out 2s forwards;
+            opacity: 0;
+}
+
+.guia2 {
+            animation: surgir-baixo 1s ease-out 2.3s forwards;
+            opacity: 0;
+}
+
+.guia3 {
+            animation: surgir-baixo 1s ease-out 2.6s forwards;
+            opacity: 0;
+}
+
+.textos {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 80px;
+    margin: 45px;
+}
+
+#texto1 {
+    margin-top: 20px;
+    height: 240px;
+    width: 240px;
+    border: solid 2px var(--preto-avermelhado);
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--vermelho-escuro);
+    box-shadow: 0 0 5px var(--branco),
+                0 0 11px var(--branco),
+                0 0 13px var(--vermelho);
+    animation: surgir-baixo 1s ease-out 2.2s forwards;
+    opacity: 0;
+}
+
+#texto2 {
+    width: 240px;
+    height: 240px;
+    margin-left: 7px;
+    margin-top: 20px;
+    border: solid 2px var(--preto-avermelhado);
+    padding: 8px;
+    border-radius: 12px;
+    background-color: var(--vermelho-escuro);
+    box-shadow: 0 0 5px var(--branco),
+                0 0 11px var(--branco),
+                0 0 13px var(--vermelho);
+    animation: surgir-baixo 1s ease-out 2.5s forwards;
+    opacity: 0;
+}
+
+#texto3 {
+    width: 240px;
+    height: 240px;
+    margin-left: 5px;
+    margin-top: 20px;
+    border: solid 2px var(--preto-avermelhado);
+    padding: 8px;
+    border-radius: 12px;
+    background-color: var(--vermelho-escuro);
+    box-shadow: 0 0 5px var(--branco),
+                0 0 11px var(--branco),
+                0 0 13px var(--vermelho);
+    animation: surgir-baixo 1s ease-out 2.8s forwards;
+    opacity: 0;
+}
+
+
+.imagem-guia {
+    height: 180px;
+    width: 210px;
+    margin: 10px 0;
+    margin-top: 20px;
+    border: solid 2px var(--vermelho-escuro);
+    border-radius: 12px;
+    box-shadow: 0 0 5px var(--branco),
+                0 0 11px var(--vermelho),
+                0 0 13px var(--vermelho);
+
+}
+
+@keyframes surgir-cima {
+    0% {
+        opacity: 0;
+        transform: translateY(-33px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1.1);
+    }
+}
+
+/******************FIM DO MAIN*****************/
