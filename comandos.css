@@ -195,118 +195,102 @@ nav ul a:hover {
     }
 }
 
-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    animation: surgir-baixo 1.5s ease-out .3s forwards;
+main {
+    padding-top: 200px;
+}
+
+#sec-comandos {
+    animation: surgir-baixo 1s ease-out 1.3s forwards;
     opacity: 0;
 }
 
-#comandos {
-    margin-top: 200px;
-    background-color: var(--vermelho-escurao);
-    border: solid var(--vermelho-escurao) 4px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    padding: 40px 12px;
-    width: 60%;
-    filter: drop-shadow( 0 0 3px var(--cinza-escurao)) 
-            drop-shadow(0 0 3px var(--vermelho-escuro)) 
-            drop-shadow(0 0 2px var(--vermelho-claro));
+#pesquisa {
+  width: 80%;
+  max-width: 600px;
+  padding: 10px 15px;
+  margin: 20px auto;
+  display: block;
+  background: var(--cinza-escuro);
+  border: 2px solid var(--vermelho-escurao);
+  color: var(--branco);
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+  font-family: "Russo One", sans-serif;
 }
 
-section div div {
-    filter: drop-shadow( 0 0 2px var(--preto)) 
-            drop-shadow(0 0 5px var(--preto)) 
-            drop-shadow(0 0 3px var(--vermelho-escurao));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 90%;
-    background-color: var(--cinza-escurao);
-    gap: 14px;
-    border-radius: 12px;
-    padding: 12px;
+#pesquisa:focus {
+  border-color: var(--vermelho-escurao);
+  background: var(--cinza-escurao);
+  color: var(--branco);
+  font-family: "Russo One", sans-serif;
+}
+
+.categoria {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.categoria-titulo {
+  color: var(--branco);
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--branco);
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+  filter: brightness(1.6);
+  animation: pulsar 1s ease-in-out infinite;
+}
+
+.categoria-lista {
+  background: var(--cinza-escuro);
+  border: solid 2px var(--vermelho-escurao);
+  border-left: solid 4px var(--vermelho-escurao);
+  border-radius: 8px;
+  padding: 15px;
+  filter: drop-shadow( 0 0 2px var(--cinza)) 
+                drop-shadow(0 0 5px var(--vermelho-escuro)) 
+                drop-shadow(0 0 2px var(--vermelho-escurao));
+}
+
+.comando {
+  background: var(--cinza);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: solid 1px var(--vermelho-escurao);
+  border-left: 4px solid var(--vermelho-escurao);
+  transition: 0.2s;
+  color: var(--preto);
+}
+
+.comando:hover {
+  background: var(--branco);
+  transform: scale(1.02);
 }
 
 .cmd-nome {
-    margin-top: 40px;
-    animation: pulsar-letras .7s ease-in-out infinite;
-    background-color: var(--cinza);
-    color: var(--preto);
-    font-family: "Russo One", sans-serif;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
+  color: var(--vermelho-escurao);
+  font-weight: bold;
+  font-size: 23px;
+  font-family: "Russo One", sans-serif;
+  text-transform: uppercase;
+  filter: brightness(1.6);
+  text-shadow: -2px 0 3px var(--preto),
+               -2px 0 2px var(--vermelho-escurao),
+               -2px 0 3px var(--vermelho-escurao),
+               -2px 0 3px var(--preto);
 }
 
 .cmd-description {
-    background-color: var(--cinza);
-    filter: drop-shadow( 0 0 2px var(--preto)) 
-            drop-shadow(0 0 2px var(--cinza-escurao)) 
-            drop-shadow(0 0 1px var(--preto));
-    font-family: "Russo One", sans-serif;
-    color: var(--preto);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Russo One", sans-serif;
+  font-size: 17px;
 }
 
 .cmd-info {
-    margin-bottom: 40px;
-    background-color: var(--cinza);
-    color: var(--preto);
-    filter: drop-shadow( 0 0 2px var(--preto)) 
-            drop-shadow(0 0 2px var(--cinza-escurao)) 
-            drop-shadow(0 0 1px var(--preto));
-
-}
-
-.cmd-cooldown {
-    display: flex;
-    font-family: "Russo One", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cmd-category {
-    font-family: "Russo One", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@keyframes pulsar-letras {
-    0%, 100%{
-        text-shadow: 0 0 1px var(--vermelho-claro),
-                     0 0 1px var(--vermelho-escuro),
-                     0 0 1px var(--vermelho-escurao);
-    }
-    50% {
-        text-shadow: 0 0 2px var(--vermelho-claro),
-                     0 0 2px var(--vermelho-escuro),
-                     0 0 2px var(--vermelho-escurao);
-    }
-}   
-
-@keyframes brilhar {
-    0%, 100% {
-        text-shadow: 0 0 3px var(--cinza),
-                     0 0 2px var(--vermelho-escuro),
-                     0 0 1px var(--vermelho-escurao);
-    }
-    50% {
-        text-shadow: 0 0 3px var(--branco),
-                     0 0 2px var(--vermelho),
-                     0 0 1px var(--vermelho-escuro);
-    }
+  color: var(--cinza);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-family: "Russo One", sans-serif;
+  color: var(--preto);
 }
