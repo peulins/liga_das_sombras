@@ -233,12 +233,28 @@ main {
 
 .categoria-titulo {
   color: var(--branco);
-  margin-bottom: 15px;
-  border-bottom: 2px solid var(--branco);
-  padding-bottom: 4px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--vermelho-escurao);
+  padding: 6px 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+  position: relative;
   letter-spacing: 1px;
   filter: brightness(1.6);
   animation: pulsar 1s ease-in-out infinite;
+}
+
+.categoria-titulo::after {
+  content: "▾";
+  position: absolute;
+  right: 10px;
+  color: var(--vermelho-escurao);
+  transition: 0.3s;
+}
+
+.categoria-titulo.aberto::after {
+  content: "▸";
 }
 
 .categoria-lista {
@@ -247,9 +263,24 @@ main {
   border-left: solid 4px var(--vermelho-escurao);
   border-radius: 8px;
   padding: 15px;
+  margin-top: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease;
   filter: drop-shadow( 0 0 2px var(--cinza)) 
                 drop-shadow(0 0 5px var(--vermelho-escuro)) 
                 drop-shadow(0 0 2px var(--vermelho-escurao));
+}
+
+.categoria-lista.fechado {
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.categoria-lista {
+  transition: all 0.35s ease;
 }
 
 .comando {
