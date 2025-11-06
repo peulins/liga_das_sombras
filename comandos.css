@@ -325,3 +325,12 @@ main {
   font-family: "Russo One", sans-serif;
   color: var(--preto);
 }
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+    header {
+        justify-content: space-around;
+    }
+}
